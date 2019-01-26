@@ -1,2 +1,1 @@
-# one-day-one-post
-List blog komunitas One Day One Post
+Menampilkan blog-blog dari komunitas One Day One Post.
