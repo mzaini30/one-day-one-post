@@ -16,6 +16,18 @@ blog:
     link: http://jejakdara.blogspot.com/
     judul: Jejak Dara
     deskripsi: Kenangan merupakan harta yang tidak bisa dicuri oleh siapa pun.
+  -
+    link: https://www.geges-ndl.com/
+    judul: NDL Institute
+    deskripsi: The other side of idea.
+  -
+    link: https://www.coretanbasayev.com/
+    judul: Coretan Basayev
+    deskripsi: Belajar membaca, belajar menulis.
+  -
+    link: http://enikascratch.blogspot.com/
+    judul: "Hyuya's"
+    deskripsi: Just a scratch for hiding myself beneath the words.
 ---
 
 <!DOCTYPE html>
@@ -41,6 +53,9 @@ blog:
 			</div>
 			<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 		      <ul class="nav navbar-nav">
+		        <li><a href="#!" class="acak">Acak</a></li>
+		        <li><a href="#!" class="urut">Urut</a></li>
+		        <li><hr></li>
 		        <li><a href="https://api.whatsapp.com/send?phone=6281545143654&text=">Chat Me</a></li>
 		        <li><a href="https://play.google.com/store/apps/dev?id=6751907367958089476">Other Apps</a></li>
 		        <li><a href="https://play.google.com/store/apps/details?id=com.mzaini30.onedayonepost">Review</a></li>
@@ -48,17 +63,17 @@ blog:
 		    </div>
 		</div>
 	</div>
-	<div class="container">
-		<div class="list-group">
-			{% for x in page.blog %}
-				<a href="{{ x.link }}" class="list-group-item">
-					<h4 class="list-group-item-heading">{{ x.judul }}</h4>
-					<p class="list-group-item-text">{{ x.deskripsi }}</p>
-				</a>
-			{% endfor %}
-		</div>
+	<div class="list-group">
+		{% assign blog = page.blog | sort: 'judul' %}
+		{% for x in blog %}
+			<a href="{{ x.link }}" class="list-group-item">
+				<h4 class="list-group-item-heading">{{ x.judul }}</h4>
+				<p class="list-group-item-text">{{ x.deskripsi }}</p>
+			</a>
+		{% endfor %}
 	</div>
 	<script type="text/javascript" src="vendor/jquery/jquery.min.js"></script>
+	<script type="text/javascript" src="vendor/shuffle/shuffle.js"></script>
 	<script type="text/javascript" src="vendor/bootstrap/js/bootstrap.min.js"></script>
 	<script type="text/javascript" src="app/app.js"></script>
 </body>
