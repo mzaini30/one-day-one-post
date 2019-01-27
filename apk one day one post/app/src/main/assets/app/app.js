@@ -13,6 +13,3 @@ $('.urut').click(function(){
 	})
 	$('.list-group').append(els)
 })
-
-// save page position
-// simpan ke database setiap acak dan urut
