@@ -1,5 +1,8 @@
-if (localStorage.getItem('list blog') != null){
-	$('.list-group').html(localStorage.getItem('list blog'))
+---
+---
+
+if (localStorage.getItem('list blog {{ site.time }}') != null){
+	$('.list-group').html(localStorage.getItem('list blog {{ site.time }}'))
 }
 
 $('.navbar-nav a').click(function(){
@@ -8,7 +11,7 @@ $('.navbar-nav a').click(function(){
 
 $('.acak').click(function(){
 	$('.list-group-item').shuffle()
-	localStorage.setItem('list blog', $('.list-group').html())
+	localStorage.setItem('list blog {{ site.time }}', $('.list-group').html())
 })
 
 $('.urut').click(function(){
@@ -17,7 +20,7 @@ $('.urut').click(function(){
 	    return $(el1).text().trim().localeCompare($(el2).text().trim())
 	})
 	$('.list-group').append(els)
-	localStorage.setItem('list blog', $('.list-group').html())
+	localStorage.setItem('list blog {{ site.time }}', $('.list-group').html())
 })
 
 // save page position

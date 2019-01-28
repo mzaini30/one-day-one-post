@@ -27,7 +27,7 @@ public class MainActivity extends AppCompatActivity {
         // my banner ad id: ca-app-pub-2878374163061282/6615438108
         // change to your own ad id
         // Change in MainActivity.java and activity_main.xml
-        MobileAds.initialize(this, "ca-app-pub-2238217504982060/3203050513");
+        MobileAds.initialize(this, "ca-app-pub-2238217504982060/3753994093");
         mAdView = (AdView)findViewById(R.id.adView);
         AdRequest adRequest = new AdRequest.Builder().build();
         mAdView.loadAd(adRequest);
@@ -46,7 +46,7 @@ public class MainActivity extends AppCompatActivity {
             public boolean shouldOverrideUrlLoading(WebView view, String url) {
                 // TODO Auto-generated method stub
 
-                if (url.contains("http://") || url.contains("https://")){
+                if (url.contains("https://api.whatsapp.com") || url.contains("https://play.google.com")){
                     Intent i = new Intent(Intent.ACTION_VIEW, Uri.parse(url));
                     startActivity(i);
                 } else {
