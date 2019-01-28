@@ -9,6 +9,7 @@ import android.webkit.URLUtil;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
+import android.webkit.CookieManager;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.android.gms.ads.AdRequest;
@@ -32,10 +33,19 @@ public class MainActivity extends AppCompatActivity {
         AdRequest adRequest = new AdRequest.Builder().build();
         mAdView.loadAd(adRequest);
 
+        // https://stackoverflow.com/questions/44324373/cookies-are-not-being-stored-in-android-webview
+
+        CookieManager cookieManager = CookieManager.getInstance();
+	    cookieManager.setAcceptCookie(true);
+	    cookieManager.acceptCookie();
+	    cookieManager.setAcceptFileSchemeCookies(true);
+
         WebView webview = (WebView) findViewById(R.id.webview);
         WebSettings webSettings = webview.getSettings();
         webSettings.setJavaScriptEnabled(true);
         webSettings.setDatabaseEnabled(true);
+        webSettings.setAllowFileAccess(true);
+        webSettings.setAllowContentAccess(true);
         String databasePath = this.getApplicationContext().getDir("database", Context.MODE_PRIVATE).getPath();
         webSettings.setDatabasePath(databasePath);
         webSettings.setDomStorageEnabled(true);
